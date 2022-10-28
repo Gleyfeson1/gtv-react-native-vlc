@@ -1,0 +1,43 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml:1:1-10:12
+INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml:1:1-10:12
+INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml:1:1-10:12
+INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml:1:1-10:12
+INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml:1:1-10:12
+INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml:1:1-10:12
+INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml:1:1-10:12
+	package
+		ADDED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml:3:5-31
+		INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml
+		INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml
+		ADDED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml:1:1-10:12
+		INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml
+		ADDED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml:1:1-10:12
+		INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml:1:11-69
+application
+ADDED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml:5:5-8:19
+	android:supportsRtl
+		ADDED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml:6:9-35
+	android:label
+		ADDED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml:5:19-51
+uses-sdk
+INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml
+INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml
+INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml
+INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml
+		ADDED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml
+		INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml
+		ADDED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml
+		INJECTED from /home/gleyfeson/Documents/Dev/repository/gtvplayeriptv/node_modules/@nghinv/react-native-vlc/android/src/main/AndroidManifest.xml
