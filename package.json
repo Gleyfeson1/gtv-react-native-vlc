@@ -1,0 +1,20 @@
+{
+  "name": "epgmcslgd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gleyfeson1/gtv-react-native-vlc.git"
+  },
+  "author": "gleyfeson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gleyfeson1/gtv-react-native-vlc/issues"
+  },
+  "homepage": "https://github.com/Gleyfeson1/gtv-react-native-vlc#readme"
+}
