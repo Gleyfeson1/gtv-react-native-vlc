@@ -1,0 +1,3 @@
+[submodule "gtv-react-native-vlc"]
+	path = gtv-react-native-vlc
+	url = https://github.com/Gleyfeson1/gtv-react-native-vlc
