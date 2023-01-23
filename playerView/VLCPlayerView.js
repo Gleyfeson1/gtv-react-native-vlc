@@ -103,6 +103,7 @@ export default class VLCPlayerView extends Component {
       errorTitle,
       animationLayout,
       videoStyle,
+      newChannelDetails,
       ...otherProps
     } = this.props;
     const { isLoading, loadingSuccess, showControls, isError } = this.state;
@@ -171,7 +172,7 @@ export default class VLCPlayerView extends Component {
           onOpen={this._onOpen}
           onLoadStart={this._onLoadStart}
         />
-        {realShowLoading &&
+        {(this.state.currentTime <= 0.0 || isLoading )&&
           !isError && (
             <View style={styles.loading}>
               <ActivityIndicator size={'large'} animating={true} color="#fff" />
@@ -263,6 +264,7 @@ export default class VLCPlayerView extends Component {
               showLeftButton={showLeftButton}
               showMiddleButton={showMiddleButton}
               showRightButton={showRightButton}
+              newChannelDetails={newChannelDetails}
             />
           )}
         </View>
@@ -289,11 +291,10 @@ export default class VLCPlayerView extends Component {
   onPaused(event) {
     const { onVLCPaused } = this.props;
     onVLCPaused && onVLCPaused(event);
+    console.log(this.state.isLoading);
     if (!this.state.paused) {
-      this.setState({ paused: true, showControls: true });
-    } else {
-      this.setState({ showControls: true });
-    }
+      this.setState({ paused: true,  });
+    } 
     // console.log('onPaused');
   }
 
@@ -318,7 +319,7 @@ export default class VLCPlayerView extends Component {
     const currentTime = new Date().getTime();
     const diffTime = currentTime - this.bufferTime;
     // console.log('bufferIntervalFunction');
-    if (diffTime > 5000) {
+    if (diffTime > 10000) {
       clearInterval(this.bufferInterval);
       this.setState({
         paused: true,

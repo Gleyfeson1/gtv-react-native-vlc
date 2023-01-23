@@ -6,7 +6,9 @@ import {
   TouchableOpacity
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Slider from 'react-native-slider';
+import PictureInPicture from "react-native-picture-in-picture";
 
 export default class ControlBtn extends Component {
   static defaultProps = {
@@ -42,6 +44,15 @@ export default class ControlBtn extends Component {
     return courseReal;
   };
 
+
+  pipHandler = async (newChannelDetails) => {
+      try {
+        PictureInPicture.start();
+      } catch (e) {
+        // saving error
+      }
+  }
+
   render() {
     let {
       paused,
@@ -60,7 +71,8 @@ export default class ControlBtn extends Component {
       showRightButton,
       onReplayPress,
       onGoLivePress,
-      showGoLive
+      showGoLive,
+      newChannelDetails
     } = this.props;
     return (
       <View style={[styles.controls, style]}>
@@ -132,14 +144,27 @@ export default class ControlBtn extends Component {
                 </View>
               )}
               <View style={styles.right}>
-                <TouchableOpacity
+                {/* <TouchableOpacity
                   activeOpacity={1}
                   onPress={() => {
                     onGoLivePress && onGoLivePress();
                   }}>
                   <Text
                     style={{ fontSize: 11, color: '#fff' }}>{showGoLive ? titleGolive : '       '}</Text>
+                </TouchableOpacity> */}
+                <TouchableOpacity
+                      activeOpacity={1}
+                      onPress={() => {console.log("clicado aqui"); this.pipHandler(newChannelDetails)}}
+                      style={{ width: 40, alignItems: 'center', justifyContent: 'center' }}>
+
+                      <MaterialIcons
+                        name="picture-in-picture"
+                        size={26}
+                        color="#fff"
+                      />
+
                 </TouchableOpacity>
+            
                 {
                   showRightButton ? (
                     <TouchableOpacity
@@ -147,10 +172,10 @@ export default class ControlBtn extends Component {
                       onPress={() => {
                         onFullPress && onFullPress(!isFull);
                       }}
-                      style={{ width: 50, alignItems: 'center', justifyContent: 'center' }}>
+                      style={{ width: 40, alignItems: 'center', justifyContent: 'center' }}>
                       <Icon name={isFull ? 'fullscreen-exit' : 'fullscreen'} size={30} color="#fff" />
                     </TouchableOpacity>
-                  ) : <View style={{ width: 50 }} />
+                  ) : <View style={{ width: 40 }} />
                 }
               </View>
             </View>
@@ -243,6 +268,6 @@ const styles = StyleSheet.create({
   right: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
   },
 });

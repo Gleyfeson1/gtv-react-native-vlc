@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Gleyfeson1/gtv-react-native-vlc/issues"
   },
-  "homepage": "https://github.com/Gleyfeson1/gtv-react-native-vlc#readme"
+  "homepage": "https://github.com/Gleyfeson1/gtv-react-native-vlc#readme",
+  "dependencies": {
+    "react-native-picture-in-picture": "^0.0.1"
+  }
 }
