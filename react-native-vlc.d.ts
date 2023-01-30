@@ -145,6 +145,8 @@ declare module '@nghinv/react-native-vlc' {
     // deafault true
     animationLayout: boolean;
 
+    isFullVideo: boolean;
+
     // deafault 'go live'
     titleGolive: string;
 

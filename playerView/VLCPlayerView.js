@@ -59,6 +59,9 @@ export default class VLCPlayerView extends Component {
   };
 
   componentDidMount() {
+    if(this.props.isFullVideo){
+      this._toFullScreen()
+    }
     if (this.props.isFull) {
       this.setState({
         showControls: true,
@@ -104,6 +107,7 @@ export default class VLCPlayerView extends Component {
       animationLayout,
       videoStyle,
       newChannelDetails,
+      isFullVideo,
       ...otherProps
     } = this.props;
     const { isLoading, loadingSuccess, showControls, isError } = this.state;
@@ -356,7 +360,6 @@ export default class VLCPlayerView extends Component {
   _onLoadStart = e => {
     // console.log('_onLoadStart', e);
     const { isError, currentTime, totalTime } = this.state;
-    const { seek} = this.props;
     if (isError) {
       this.reloadSuccess = true;
       if (Platform.OS === 'ios') {
@@ -373,7 +376,6 @@ export default class VLCPlayerView extends Component {
         });
       })
     } else {
-      this.vlcPlayer.seek(seek);
       this.setState({
         isLoading: true,
         isError: false,
@@ -400,6 +402,10 @@ export default class VLCPlayerView extends Component {
    */
   onProgress(event) {
     const { onVLCProgress, currentSeekVideo, seek} = this.props;
+
+    if(seek > event.currentTime / 1000){
+      this.vlcPlayer.seek(seek)
+    }
     const currentTime = event.currentTime;
     let loadingSuccess = false;
     onVLCProgress && onVLCProgress();
