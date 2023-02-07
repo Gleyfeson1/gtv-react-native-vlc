@@ -33,7 +33,7 @@ export default class VLCPlayerView extends Component {
       currentTime: 0.0,
       totalTime: 0.0,
       showControls: false,
-      seek: this.props.seek,
+      seek: this.props.seek ?? 0,
       isError: false,
     };
     this.touchTime = 0;
@@ -45,7 +45,7 @@ export default class VLCPlayerView extends Component {
   static defaultProps = {
     initPaused: false,
     source: null,
-    seek: 0,
+    seek: 30000,
     playInBackground: false,
     isAd: false,
     autoplay: true,
@@ -145,6 +145,7 @@ export default class VLCPlayerView extends Component {
         activeOpacity={1}
         style={[styles.videoBtn, style, videoStyle]}
         onPressOut={() => {
+          
           let currentTime = new Date().getTime();
           if (this.touchTime === 0) {
             this.touchTime = currentTime;
@@ -152,6 +153,7 @@ export default class VLCPlayerView extends Component {
             this.setState({ showControls: !this.state.showControls });
           } else {
             if (currentTime - this.touchTime >= 500) {
+              
               this.touchTime = currentTime;
               animationLayout && LayoutAnimation.configureNext(LayoutAnimation.Presets.linear);
               this.setState({ showControls: !this.state.showControls });
@@ -161,6 +163,7 @@ export default class VLCPlayerView extends Component {
         <VLCPlayer
           {...otherProps}
           ref={ref => (this.vlcPlayer = ref)}
+          seek={5.151}
           paused={this.state.paused}
           style={[styles.video]}
           source={source}
@@ -295,7 +298,6 @@ export default class VLCPlayerView extends Component {
   onPaused(event) {
     const { onVLCPaused } = this.props;
     onVLCPaused && onVLCPaused(event);
-    console.log(this.state.isLoading);
     if (!this.state.paused) {
       this.setState({ paused: true,  });
     } 
@@ -316,14 +318,12 @@ export default class VLCPlayerView extends Component {
     if (!this.bufferInterval) {
       this.bufferInterval = setInterval(this.bufferIntervalFunction, 250);
     }
-    // console.log('onBuffering', event);
   }
 
   bufferIntervalFunction = () => {
     const currentTime = new Date().getTime();
     const diffTime = currentTime - this.bufferTime;
-    // console.log('bufferIntervalFunction');
-    if (diffTime > 10000) {
+    if (diffTime > 7000) {
       clearInterval(this.bufferInterval);
       this.setState({
         paused: true,
@@ -334,7 +334,6 @@ export default class VLCPlayerView extends Component {
         });
       });
       this.bufferInterval = null;
-      // console.log('remove bufferIntervalFunction');
     }else{
       this.setState({
         paused: true,
@@ -343,9 +342,7 @@ export default class VLCPlayerView extends Component {
   };
 
   _onError = e => {
-    // console.log('_onError', e);
     const { onVLCError } = this.props;
-
     onVLCError && onVLCError();
     this.reloadSuccess = false;
     this.setState({
@@ -354,11 +351,10 @@ export default class VLCPlayerView extends Component {
   };
 
   _onOpen = e => {
-    // console.log('onOpen', e);
+    
   };
 
   _onLoadStart = e => {
-    // console.log('_onLoadStart', e);
     const { isError, currentTime, totalTime } = this.state;
     if (isError) {
       this.reloadSuccess = true;
@@ -402,9 +398,14 @@ export default class VLCPlayerView extends Component {
    */
   onProgress(event) {
     const { onVLCProgress, currentSeekVideo, seek} = this.props;
-
-    if(seek > event.currentTime / 1000){
-      this.vlcPlayer.seek(seek)
+    const timerCurrent = new Date().getTime();
+    if(timerCurrent - this.touchTime >= 7000 && this.state.showControls){
+      this.touchTime = timerCurrent
+      this.setState({showControls: false})
+    }
+    if(this.state.seek > event.currentTime / 1000){
+      this.vlcPlayer.seek(this.state.seek)
+      this.setState({seek: event.currentTime / 1000})
     }
     const currentTime = event.currentTime;
     let loadingSuccess = false;
@@ -436,9 +437,6 @@ export default class VLCPlayerView extends Component {
    * @param event
    */
   onEnded(event) {
-    // console.log('onEnded ---------->')
-    // console.log(event)
-    // console.log('<---------- onEnded ')
     const { currentTime, totalTime } = this.state;
     const { onEnd, isAd, onVLCEnded } = this.props;
 
@@ -450,7 +448,6 @@ export default class VLCPlayerView extends Component {
           onEnd && onEnd();
           if (!isAd) {
             this.vlcPlayer.resume && this.vlcPlayer.resume(false);
-            // console.log(this.props.uri + ':   onEnded');
           }
           this.isEnding = true;
         }

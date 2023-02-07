@@ -121,7 +121,7 @@ export default class ControlBtn extends Component {
                   </View>
                   <View style={styles.progress}>
                     <Slider
-                      minimumTrackTintColor="#30a935"
+                      minimumTrackTintColor="#4bb1ec"
                       thumbStyle={styles.thumb}
                       style={{ width: '100%' }}
                       value={currentTime}
@@ -236,10 +236,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   thumb: {
-    width: 6,
-    height: 18,
+    width: 13,
+    height: 13,
     backgroundColor: '#fff',
-    borderRadius: 4,
+    borderRadius: 20,
   },
   loading: {
     position: 'absolute',
